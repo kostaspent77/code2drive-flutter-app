@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "809536286884",
+    "project_id": "code2drive-flutter-project",
+    "storage_bucket": "code2drive-flutter-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809536286884:android:9296ac2ae70aa80a5f3631",
+        "android_client_info": {
+          "package_name": "com.example.your_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnMBDCBr9f8WMPWVVfAvUt96VUh1m2yac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
