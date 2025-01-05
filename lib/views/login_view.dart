@@ -1,3 +1,5 @@
+import 'package:code2drive/constants/routes.dart';
+import 'package:code2drive/utilities/show_error_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -60,26 +62,37 @@ late final TextEditingController _password;
                         final email = _email.text;
                         final password = _password.text;
                         try {
-                          final userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                          await FirebaseAuth.instance.signInWithEmailAndPassword(
                             email: email,
                             password: password,
                           );
-                          print(userCredential);
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                            code2drive, 
+                            (route) => false, 
+                          ); 
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
-                            print('No user found for that email.');
+                            await showErrorDialog(
+                              context, 
+                              'User not found',
+                            );
                           } else if (e.code == 'wrong-password') {
-                            print('Wrong password provided for that user.');
+                            await showErrorDialog(
+                              context, 
+                              'Wrond password',
+                            );
                           } else {
-                            print('Unhandled FirebaseAuthException: ${e.code}');
-                            print(e.runtimeType);
-                            print(e);
+                            await showErrorDialog(
+                              context, 
+                              'Error: ${e.code}',
+                            );
                           }
                         } catch (e) {
                           // Άλλες εξαιρέσεις
-                          print('Something bad happened...');
-                          print(e.runtimeType);
-                          print(e);
+                          await showErrorDialog(
+                              context, 
+                              e.toString(),
+                            );
                         }
                       },
                       child: const Text('Login'),
@@ -87,7 +100,7 @@ late final TextEditingController _password;
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/register/', 
+                          registerRoute, 
                           (route) => false,
                         );
                       }, 
