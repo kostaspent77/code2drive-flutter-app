@@ -66,10 +66,21 @@ late final TextEditingController _password;
                             email: email,
                             password: password,
                           );
-                          Navigator.of(context).pushNamedAndRemoveUntil(
+                          final user = FirebaseAuth.instance.currentUser;
+                          //user's email is verified
+                          if (user?.emailVerified ?? false) {
+                            Navigator.of(context).pushNamedAndRemoveUntil(
                             code2drive, 
                             (route) => false, 
                           ); 
+                          } else {
+                          //user's email is NOT verified
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                            verifyEmailRoute, 
+                            (route) => false, 
+                          ); 
+                          }
+                          
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
                             await showErrorDialog(
