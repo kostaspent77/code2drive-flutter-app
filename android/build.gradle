@@ -1,3 +1,20 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Ενημερώστε στην τελευταία συμβατή έκδοση του Android Gradle Plugin
+        classpath 'com.android.tools.build:gradle:8.2.1'
+    }
+}
+
+
+
+
+
+
+
 allprojects {
     repositories {
         google()
