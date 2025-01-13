@@ -42,6 +42,14 @@ dependencies:
   sqflite: ^2.4.1
   path_provider: ^2.1.5
   path: ^1.9.0
+  image_picker: ^1.1.2
+  url_launcher: ^6.0.20
+  url_launcher_android: ^6.0.18
+  youtube_player_iframe: ^4.0.4
+  webview_flutter: ^4.0.6
+  image: ^3.2.1
+  image_compare: ^1.1.2
+
 
 dev_dependencies:
   flutter_test:
@@ -52,19 +60,49 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.11.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/1.png
+    - assets/2.png
+    - assets/3.png
+    - assets/4.png
+    - assets/5.png
+    - assets/6.png
+    - assets/7.png
+    - assets/8.png
+    - assets/9.png
+    - assets/10.png
+    - assets/11.png
+    - assets/12.png
+    - assets/13.png
+    - assets/14.png
+    - assets/15.png
+    - assets/16.png
+    - assets/17.png
+    - assets/VIDEO1.png
+    - assets/VIDEO2.png
+    - assets/VIDEO3.png
+    - assets/Testing.db
+    - assets/defaultprof.png
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_icon.png"
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -95,3 +133,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+

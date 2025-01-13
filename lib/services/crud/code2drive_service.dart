@@ -1,9 +1,10 @@
+import 'dart:async';
+import 'package:flutter/widgets.dart';
 import 'package:code2drive/services/crud/crud_exceptions.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' show join;
-import 'package:flutter/foundation.dart';
 
 class Code2driveService {
   Database? _db;
@@ -270,6 +271,26 @@ class DatabaseC2d {
 
 }
 
+class TrafficSigns {
+  final int id;
+  final String image;
+  final String description;
+  final String right;
+  final String wrong1;
+  final String wrong2;
+  final String signtitle;
+
+  TrafficSigns({
+    required this.id, 
+    required this.image, 
+    required this.description, 
+    required this.right,
+    required this.wrong1,
+    required this.wrong2,
+    required this.signtitle,
+  });
+}
+
 const dbName = 'code2drive.db';
 const c2dTable = 'c2d';
 const userTable = 'user';
@@ -290,4 +311,15 @@ const createC2dTable = '''CREATE TABLE IF NOT EXISTS "c2d" (
         "is_sunced_with_cloud"	INTEGER NOT NULL DEFAULT 0,
         PRIMARY KEY("id" AUTOINCREMENT),
         FOREIGN KEY("user_id") REFERENCES "user"("id")
+      );''';
+
+const createTrafficSignsTable = '''CREATE TABLE "traffic_signs" (
+        "id"	INTEGER NOT NULL,
+        "image"	TEXT NOT NULL,
+        "description"	TEXT NOT NULL,
+        "right"	TEXT NOT NULL,
+        "wrong 1"	TEXT NOT NULL,
+        "wrong 2"	TEXT NOT NULL,
+        "sign_title"	TEXT NOT NULL,
+        PRIMARY KEY("id" AUTOINCREMENT)
       );''';
